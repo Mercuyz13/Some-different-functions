@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do Círculo</title>
+    <link rel="stylesheet" href="../css/calculo_circulo.css">
+</head>
+<body>
+    <a href="../index.html">
+        <img src="../img/Home Button.png" alt="Home Button" id="home_button">
+    </a>
+    <div id="main-container">
+        <h1>Cálculo do Círculo</h1>
+        <div id="input-container">
+            <label for="radius-input">Digite o raio do círculo:</label>
+            <input type="number" id="radius-input" step="any">
+            <button id="calculate-button" onclick="calculateCircle()">Calcular</button>
+        </div>
+        <div id="result-container">
+            <p id="result-text"></p>
+        </div>
+    </div>
+    <script>
+        function calculateCircle() {
+            const radiusInput = document.getElementById("radius-input").value;
+            const radius = parseFloat(radiusInput);
+            const pi = 3.1415;
+
+            if (isNaN(radius) || radius <= 0 || radiusInput === "") {
+                document.getElementById("result-text").innerText = "Por favor, insira um raio válido maior que zero.";
+                return;
+            }
+
+            const area = pi * (radius ** 2);
+            const perimeter = 2 * pi * radius;
+
+            document.getElementById("result-text").innerText = `Área: ${area.toFixed(2)} m²\nPerímetro: ${perimeter.toFixed(2)} m`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valores do Número</title>
+    <link rel="stylesheet" href="../css/valores_numero.css">
+</head>
+<body>
+    <a href="../index.html">
+        <img src="../img/Home Button.png" alt="Home Button" id="home_button">
+    </a>
+    <div id="main-container">
+        <h1>Valores de um Número</h1>
+        <div id="input-container">
+            <label for="number-input">Digite um número:</label>
+            <input type="number" id="number-input" step="any">
+            <button id="calculate-button" onclick="calculate()">Calcular</button>
+        </div>
+        <div id="result-container">
+            <p id="result-text"></p>
+        </div>
+        <script>
+            function calculate() {
+                const input = document.getElementById('number-input').value;
+                const number = parseFloat(input);
+                if (isNaN(number) || input === '') {
+                    document.getElementById('result-text').innerText = 'Por favor, insira um número válido.';
+                    return;
+                }
+                const double = number * 2;
+                const half = number / 2;
+                const quadrado = number ** 2;
+                const cubo = number ** 3;
+                document.getElementById('result-text').innerText = 
+                    `Metade: ${half}\n` +
+                    `Dobro: ${double}\n` +
+                    `Quadrado: ${quadrado}\n` +
+                    `Cubo: ${cubo}`;
+            }
+        </script>
+    </div>
+</body>
+</html>

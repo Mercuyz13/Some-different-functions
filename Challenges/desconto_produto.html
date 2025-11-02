@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconto do Produto</title>
+    <link rel="stylesheet" href="../css/desconto_produto.css">
+</head>
+<body>
+    <a href="../index.html">
+        <img src="../img/Home Button.png" alt="Home Button" id="home_button">
+    </a>
+    <div id="main-container">
+        <h1>Desconto do Produto</h1>
+        <div id="input-container">
+            <label for="price-input">Digite o preço do produto:</label>
+            <input type="number" id="price-input" step="any">
+            <button id="calculate-button" onclick="calculateDiscount()">Calcular Desconto</button>
+        </div>
+        <div id="result-container">
+            <p id="result-text"></p>
+        </div>
+    </div>
+    <script>
+        function calculateDiscount() {
+            const priceInput = document.getElementById("price-input").value;
+            const discountRate = 0.10;
+            const discountAmount = parseFloat(priceInput) * discountRate;
+            const finalPrice = parseFloat(priceInput) - discountAmount;
+
+            if (isNaN(priceInput) || priceInput === "" || parseFloat(priceInput) < 0) {
+                document.getElementById("result-text").innerText = "Por favor, insira um preço válido.";
+            } else {
+                document.getElementById("result-text").innerText = `Desconto: R$ ${discountAmount.toFixed(2)} \nPreço Final: R$ ${finalPrice.toFixed(2)}`;
+            }
+        }
+    </script>
+</body>
+</html>
