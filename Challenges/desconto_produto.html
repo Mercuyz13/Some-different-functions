@@ -31,9 +31,10 @@
             if (isNaN(priceInput) || priceInput === "" || parseFloat(priceInput) < 0) {
                 document.getElementById("result-text").innerText = "Por favor, insira um preço válido.";
             } else {
-                document.getElementById("result-text").innerText = `Desconto: R$ ${discountAmount.toFixed(2)} \nPreço Final: R$ ${finalPrice.toFixed(2)}`;
+                document.getElementById("result-text").innerText = `Desconto: € ${discountAmount.toFixed(2)} \nPreço Final: € ${finalPrice.toFixed(2)}`;
             }
         }
     </script>
 </body>
+
 </html>
